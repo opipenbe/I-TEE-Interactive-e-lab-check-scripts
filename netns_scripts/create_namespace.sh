@@ -5,7 +5,7 @@
 # Error codes:
 # 	1 - wrong argument number
 #	2 - Insufficient privileges
-#	3 - Interface not found
+#	3 - Interface not found or namespace already exists
 #	4 - Unknown error
 
 # Check arguments
@@ -33,9 +33,12 @@ if [ $"$EUID" -ne 0 ]; then
 fi
 
 # Check interface
-FILE="/sys/class/net/$INTERFACE"
 if [ ! -d /sys/class/net/$INTERFACE ]; then
-	echo "Interface $INTERFACE not found."
+	if [ -f /var/run/netns/$NAMESPACE ]; then
+		echo "Network namespace $NAMESPACE already exists."	
+	else
+		echo "Interface $INTERFACE not found."
+	fi
 	exit 3
 fi
 
@@ -43,12 +46,16 @@ fi
 /sbin/ip link set $INTERFACE netns $NAMESPACE &&
 /sbin/ip netns exec $NAMESPACE ip link set $INTERFACE up &&
 /sbin/ip netns exec $NAMESPACE ip addr add $ADDRESS dev $INTERFACE &&
-/sbin/ip netns exec $NAMESPACE ip route add default via $ADDRESS dev $INTERFACE
+
+if [ $# -eq 4 ]; then
+	/sbin/ip netns exec $NAMESPACE ip route add default via $GATEWAY dev $INTERFACE
+fi
 
 if [ $? -ne 0 ]; then
+    /sbin/ip netns delete $NAMESPACE
     echo "Unknown error"
     exit 4
 fi
 
-echo "$NAMESPACE named networks namespace successfully created."
+echo "$NAMESPACE named network namespace successfully created."
 echo "Use 'ip netns show' command to view your new network namespace."
