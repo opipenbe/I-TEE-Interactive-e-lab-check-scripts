@@ -44,7 +44,11 @@ fi
 /sbin/ip netns exec $NAMESPACE ip link set $INTERFACE up &&
 /sbin/ip netns exec $NAMESPACE ip addr add $ADDRESS dev $INTERFACE &&
 /sbin/ip netns exec $NAMESPACE ip route add default via $ADDRESS dev $INTERFACE
+
 if [ $? -ne 0 ]; then
     echo "Unknown error"
     exit 4
 fi
+
+echo "$NAMESPACE named networks namespace successfully created."
+echo "Use 'ip netns show' command to view your new network namespace."
