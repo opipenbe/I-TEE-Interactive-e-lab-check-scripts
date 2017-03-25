@@ -1,5 +1,5 @@
 ping -W 2 -c 1 30.0.127.2 > /dev/null &&
-echo "Interfaces are configured" || { echo "Interfaces are not configured"
+echo "WAN interface is configured" || { echo "WAN interface is not configured"
                                       exit 1
                                     }
 exit 0
