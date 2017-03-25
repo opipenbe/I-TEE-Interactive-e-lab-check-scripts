@@ -12,7 +12,7 @@ NSPACE="eth2_ns"
 NSPACE_DEV="eth2"
 CAP_DEV="eth1"
 SRC_IP="192.168.99.1"
-DST_IP="30.0.127.1"
+DST_IP="31.0.127.1"
 
 # Set gateway
 /sbin/ip netns exec $NSPACE ip route add default via $GW_ADDR dev $NSPACE_DEV

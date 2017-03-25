@@ -16,9 +16,9 @@ fi
 
 INPUT=$(grep -E -m 1 "query.*$ROUTER_IP" /var/log/dnsmasq.log | head -1)
 if [[ $INPUT == *$ROUTER_IP* ]]; then
-	echo "found"
+	echo "nameserver is configured"
 	exit 0
 else
-	echo "not found"
+	echo "nameserver is not configured"
 	exit 2
 fi
