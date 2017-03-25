@@ -22,7 +22,7 @@ START () {
 	exec &> >(tee -a /var/log/labcheckslog.log)
 
 	# If $CheckFile exists, then exit the script
-	CheckFile="/tmp/vgstared_wan"
+	CheckFile="/tmp/vgstarted_interfaces"
 
 	if [ -f $CheckFile ]; then echo "$0 has already ran successfully" && exit 0; fi
 
@@ -44,9 +44,8 @@ START () {
 VYOSGSTARTED () {
 	while true
 	do
-	# Check WAN intf
-	bash /root/e-lab-check-scripts/check_objective/check_gstarted_wan_ip.sh
-
+	# Check interfaces configuration
+	bash /root/e-lab-check-scripts/check_objective/check_vgstarted_all_interfaces.sh
 	if [ $? -eq 0 ]; then
 		# Run objectiveschecks.py and update VirtualTa with correct value
 		echo -e "\nWan interface configured! Date: `date`\n" && touch $CheckFile
