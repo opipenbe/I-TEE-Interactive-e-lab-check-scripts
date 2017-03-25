@@ -36,7 +36,7 @@ START () {
 	Sleep=1
 
 	# Objective uname in VirtualTA
-	Uname=vcliconf
+	Uname=vgstartednameserver
 
 
 }
