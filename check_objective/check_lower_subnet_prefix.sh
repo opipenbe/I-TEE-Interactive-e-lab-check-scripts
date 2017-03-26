@@ -8,7 +8,7 @@ NSPACE=$2
 DEV=$3
 LOW_IP=$4
 
-# bash check_lower_subnet_prefix.sh 30.0.127.2 eth5_ns eth5 30.0.127.30/27
+# Example: bash check_lower_subnet_prefix.sh 30.0.127.2 eth5_ns eth5 30.0.127.30/27
 # TODO check if namespace is correct.
 
 echo "Checking $IP_ADR" lower prefix:

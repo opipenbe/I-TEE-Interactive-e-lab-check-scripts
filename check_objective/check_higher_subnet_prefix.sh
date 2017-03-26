@@ -8,7 +8,7 @@ NSPACE=$2
 DEV=$3
 HIGH_IP=$4
 
-# bash check_higher_subnet_prefix.sh 30.0.127.2 eth5_ns eth5 30.0.127.14/28
+# Example: bash check_higher_subnet_prefix.sh 30.0.127.2 eth5_ns eth5 30.0.127.14/28
 # TODO check if namespace is correct.
 
 echo "Checking $IP_ADR" higher prefix:
