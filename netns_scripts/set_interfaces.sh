@@ -8,5 +8,5 @@ cd "$(dirname "$0")"
 # this namespace is for guest subnet checking
 ./create_namespace.sh eth4 eth4_ns 192.168.109.1/24
 # this namespace is for ISP subnet checking
-./create_namespace.sh eth5 eth5_ns 30.0.127.30/27
+./create_namespace.sh eth5 eth5_ns 30.0.127.14/28
 

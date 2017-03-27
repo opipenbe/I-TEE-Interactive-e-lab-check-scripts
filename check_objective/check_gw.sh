@@ -7,11 +7,11 @@
 # exit 0 - gw is configured
 # exit 1 - gw is not configured 
 
-GW_ADDR="192.168.99.254"
-NSPACE="eth2_ns"
-NSPACE_DEV="eth2"
+GW_ADDR="30.0.127.2"
+NSPACE="eth5_ns"
+NSPACE_DEV="eth5"
 CAP_DEV="eth1"
-SRC_IP="192.168.99.1"
+SRC_IP="30.0.127.14"
 DST_IP="31.0.127.1"
 
 # Set gateway
@@ -25,12 +25,10 @@ ip netns exec $NSPACE ping -c 1 -w 4 $DST_IP > /dev/null
 
 # Stop tshark
 pkill tshark
-
-# Wait for tshark buffer
-sleep 1
+wait $(jobs -rp) 2>/dev/null
 
 # Delete gateway
-/sbin/ip netns exec $NSPACE ip route del default via $GW_ADDR dev eth2
+/sbin/ip netns exec $NSPACE ip route del default via $GW_ADDR dev $NSPACE_DEV
 
 grep "$SRC_IP -> $DST_IP" /tmp/traffic > /dev/null || 
 				          {
@@ -39,5 +37,4 @@ grep "$SRC_IP -> $DST_IP" /tmp/traffic > /dev/null ||
 					  }
 echo "gw is configured"
 exit 0 # gw is configured 
-rm /tmp/traffic
 
