@@ -22,7 +22,7 @@ START () {
 	exec &> >(tee -a /var/log/labcheckslog.log)
 
 	# If $CheckFile exists, then exit the script
-	CheckFile="/tmp/vgstared_wan"
+	CheckFile="/tmp/vgstared_eth2"
 
 	if [ -f $CheckFile ]; then echo "$0 has already ran successfully" && exit 0; fi
 
@@ -36,7 +36,7 @@ START () {
 	Sleep=1
 
 	# Objective uname in VirtualTA
-	Uname=vcliconf
+	Uname=vgstartedeth2
 
 
 }
@@ -45,7 +45,7 @@ VYOSGSTARTED () {
 	while true
 	do
 	# Check WAN intf
-	bash /root/e-lab-check-scripts/check_objective/check_vgstarted_wan_ip.sh
+	bash /root/e-lab-check-scripts/check_objective/check_vgstarted_eth2.sh
 
 	if [ $? -eq 0 ]; then
 		# Run objectiveschecks.py and update VirtualTa with correct value
