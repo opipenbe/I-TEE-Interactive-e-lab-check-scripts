@@ -17,4 +17,3 @@ ta_key = 06473dab8ae4c8486b70fe59782d54e2
 virtualta_hostname = https://i-tee.itcollege.ee:8433
 lab_id = $LAB_ID
 EOC
-
