@@ -9,8 +9,9 @@
 #   exit 4 - wrong dns server
 #   exit 5 - wrong lease
 
-START_IP="192.168.99.15/24"
-END_IP="192.168.99.160/24"
+DHCP_SERVER="192.168.99.254"
+START_IP="192.168.99.10/24"
+END_IP="192.168.99.200/24"
 NETWORK="192.168.99.0"
 SUBNET_MASK="255.255.255.0"
 GW="192.168.99.254"
@@ -29,15 +30,16 @@ fi
 # New ip
 ip netns exec $NSPACE ip addr flush dev $DEV
 ip netns exec $NSPACE ip addr add $START_IP dev $DEV
-ip netns exec $NSPACE dhcping -c $START_IP -s 192.168.99.254 || {
+ip netns exec $NSPACE dhcping -c $START_IP -s $DHCP_SERVER > /dev/null || {
 								  echo "wrong dhcp pool start address"
 								  ip netns exec $NSPACE ip addr flush dev $DEV
 								  ip netns exec $NSPACE ip addr add $CURRENT_IP dev $DEV
 								  exit 1
 								}
+# New ip
 ip netns exec $NSPACE ip addr flush dev $DEV
 ip netns exec $NSPACE ip addr add $END_IP dev $DEV
-ip netns exec $NSPACE dhcping -c $END_IP -s 192.168.99.254 || {
+ip netns exec $NSPACE dhcping -c $END_IP -s $DHCP_SERVER > /dev/null || {
 								echo "wrong dhcp pool end address"
 								ip netns exec $NSPACE ip addr flush dev $DEV
 								ip netns exec $NSPACE ip addr add $CURRENT_IP dev $DEV
@@ -86,5 +88,5 @@ if [ $? -ne 0  ]; then
 	exit 5
 fi
 
-echo "dhcp attributes ok"
+echo "dhcp pool + attributes ok"
 exit 0
