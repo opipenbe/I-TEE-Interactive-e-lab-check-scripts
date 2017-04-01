@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Requirements: dhcpcd5
+# Requirements: dhcpcd5, dhcping
 # Error codes:
 #   exit 0 - ok
 #   exit 1 - wrong network
@@ -31,12 +31,16 @@ ip netns exec $NSPACE ip addr flush dev $DEV
 ip netns exec $NSPACE ip addr add $START_IP dev $DEV
 ip netns exec $NSPACE dhcping -c $START_IP -s 192.168.99.254 || {
 								  echo "wrong dhcp pool start address"
+								  ip netns exec $NSPACE ip addr flush dev $DEV
+								  ip netns exec $NSPACE ip addr add $CURRENT_IP dev $DEV
 								  exit 1
 								}
 ip netns exec $NSPACE ip addr flush dev $DEV
 ip netns exec $NSPACE ip addr add $END_IP dev $DEV
 ip netns exec $NSPACE dhcping -c $END_IP -s 192.168.99.254 || {
 								echo "wrong dhcp pool end address"
+								ip netns exec $NSPACE ip addr flush dev $DEV
+								ip netns exec $NSPACE ip addr add $CURRENT_IP dev $DEV
 								exit 1
 							      }
 
