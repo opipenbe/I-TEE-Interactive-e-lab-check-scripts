@@ -51,6 +51,15 @@ ip netns exec $NSPACE ip addr flush dev $DEV
 ip netns exec $NSPACE ip addr add $CURRENT_IP dev $DEV
 
 
+# Check authoritative
+ip netns exec $NSPACE dhcping -s $DHCP_SERVER > /dev/null
+if [ $? -ne 0  ]; then
+        echo "not authoritative (error)"
+        exit 1
+fi
+
+
+
 INPUT=$(ip netns exec $NSPACE dhcpcd -T $DEV 2> /dev/null)
 
 # Check network
