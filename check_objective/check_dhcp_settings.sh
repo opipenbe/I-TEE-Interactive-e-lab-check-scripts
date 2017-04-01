@@ -30,7 +30,7 @@ fi
 # New ip
 ip netns exec $NSPACE ip addr flush dev $DEV
 ip netns exec $NSPACE ip addr add $START_IP dev $DEV
-ip netns exec $NSPACE dhcping -c $START_IP -s $DHCP_SERVER > /dev/null || {
+ip netns exec $NSPACE dhcping -c $START_IP -s $DHCP_SERVER -h 08:00:27:50:27:22  > /dev/null || {
 								  echo "wrong dhcp pool start address"
 								  ip netns exec $NSPACE ip addr flush dev $DEV
 								  ip netns exec $NSPACE ip addr add $CURRENT_IP dev $DEV
@@ -39,7 +39,7 @@ ip netns exec $NSPACE dhcping -c $START_IP -s $DHCP_SERVER > /dev/null || {
 # New ip
 ip netns exec $NSPACE ip addr flush dev $DEV
 ip netns exec $NSPACE ip addr add $END_IP dev $DEV
-ip netns exec $NSPACE dhcping -c $END_IP -s $DHCP_SERVER > /dev/null || {
+ip netns exec $NSPACE dhcping -c $END_IP -s $DHCP_SERVER -h 08:00:27:50:27:22 > /dev/null || {
 								echo "wrong dhcp pool end address"
 								ip netns exec $NSPACE ip addr flush dev $DEV
 								ip netns exec $NSPACE ip addr add $CURRENT_IP dev $DEV
