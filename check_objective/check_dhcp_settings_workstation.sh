@@ -9,16 +9,16 @@
 #   exit 4 - wrong dns server
 #   exit 5 - wrong lease
 
-DHCP_SERVER="192.168.109.254"
-START_IP="192.168.109.10/24"
-END_IP="192.168.109.250/24"
-NETWORK="192.168.109.0"
+DHCP_SERVER="192.168.99.254"
+START_IP="192.168.99.10/24"
+END_IP="192.168.99.250/24"
+NETWORK="192.168.99.0"
 SUBNET_MASK="255.255.255.0"
-GW="192.168.109.254"
-DNS_SERVER="8.8.8.8"
-LEASE="43200"
-NSPACE="eth4_ns"
-DEV="eth4"
+GW="192.168.99.254"
+DNS_SERVER="192.168.99.254"
+LEASE="86400"
+NSPACE="eth2_ns"
+DEV="eth2"
 
 # Saving current ip
 CURRENT_IP=$(ip netns exec $NSPACE ip -o -4 addr list $DEV | awk '{print $4}')
