@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 
 __author__ = 'margus'
-
+# Modified by Olari Pipenberg
 
 import configparser
 import requests
 import os
 import sys
+import subprocess
 
 if len(sys.argv) != 3:
     print("Wrong number of command line arguments!")
@@ -19,7 +20,8 @@ config = configparser.ConfigParser()
 print('Reading configuration from:', config_filename)
 config = configparser.ConfigParser()
 config.read(config_filename)
-username = os.getenv('LAB_USERNAME')
+#username = os.getenv('LAB_USERNAME')
+username = subprocess.check_output('dmidecode -s bios-release-date', shell=True).strip()
 try:
 
     if not username:

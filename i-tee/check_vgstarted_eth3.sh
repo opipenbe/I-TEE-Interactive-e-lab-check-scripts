@@ -10,9 +10,6 @@
 
 LC_ALL=C
 
-# START
-# HTTPSSECINST
-
 # Set variables
 
 START () {

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export LAB_USERNAME=$(dmidecode -s bios-release-date)
+#export LAB_USERNAME=$(dmidecode -s bios-release-date)
 
 LAB_MACHINE=$(dmidecode -s bios-version)
 if [[ $LAB_MACHINE == "vyos-gst"* ]]; then 
