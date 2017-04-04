@@ -20,7 +20,7 @@ START () {
 	exec &> >(tee -a /var/log/labcheckslog.log)
 
 	# Objective uname in VirtualTA
-        Uname="vservssh"
+        Uname="vservdhcpguest"
 
 	# If $CheckFile exists, then exit the script
 	CheckFile="/tmp/$Uname"
@@ -40,7 +40,7 @@ START () {
 VSERV () {
 	while true
 	do
-	bash /root/e-lab-check-scripts/check_objective/check_ssh.sh
+	bash /root/e-lab-check-scripts/check_objective/check_dhcp_settings_guest.sh
 
 	if [ $? -eq 0 ]; then
 		# Run objectiveschecks.py and update VirtualTa with correct value
