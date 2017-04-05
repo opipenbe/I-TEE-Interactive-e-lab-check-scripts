@@ -1,1 +1,6 @@
-<?php echo $_SERVER['REMOTE_ADDR']; ?>
+<html>
+<head>
+</head>
+<body>
+</body>
+</html>

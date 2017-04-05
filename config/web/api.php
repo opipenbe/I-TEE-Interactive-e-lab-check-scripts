@@ -1,10 +1,9 @@
-<?
-
+<?php
 
 $ip = $_SERVER['REMOTE_ADDR'];
 
-echo json_encode(array(
-    'ip' => $ip
-));
-
+$ar = array(
+    "ip" => $ip
+);
+echo json_encode($ar);
 ?>
