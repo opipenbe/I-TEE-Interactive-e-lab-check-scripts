@@ -4,7 +4,7 @@ ADDRESS="30.0.127.3"
 
 nc -z $ADDRESS $PORT
 if [ $? -ne 0  ]; then
-  "PAT for address: $ADDRESS and port: $PORT is not configured"
+  echo "PAT for address: $ADDRESS and port: $PORT is not configured"
   exit 1
 fi
 
