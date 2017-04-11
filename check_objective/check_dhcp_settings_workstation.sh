@@ -99,14 +99,14 @@ if [ $? -ne 0  ]; then
 	exit 5
 fi
 
-# Check domain
+# Check domain name
 echo $INPUT | grep "new_domain_name='$DOMAIN'" > /dev/null
 if [ $? -ne 0  ]; then
         echo "wrong domain (error)"
         exit 6
 fi
 
-# Check domain
+# Check domain search
 echo $INPUT | grep "new_domain_search='$SEARCH'" > /dev/null
 if [ $? -ne 0  ]; then
         echo "wrong search (error)"
