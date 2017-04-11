@@ -20,7 +20,7 @@ START () {
 	exec &> >(tee -a /var/log/labcheckslog.log)
 
 	# Objective uname in VirtualTA
-        Uname="vservssh"
+        Uname="vgstartedssh"
 
 	# If $CheckFile exists, then exit the script
 	CheckFile="/tmp/$Uname"
