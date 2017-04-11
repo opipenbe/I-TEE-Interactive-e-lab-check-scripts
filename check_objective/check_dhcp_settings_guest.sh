@@ -97,5 +97,6 @@ if [ $? -ne 0  ]; then
 	exit 5
 fi
 
+
 echo "dhcp pool + attributes ok"
 exit 0

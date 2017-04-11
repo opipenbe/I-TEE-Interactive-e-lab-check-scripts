@@ -16,7 +16,8 @@ NETWORK="192.168.99.0"
 SUBNET_MASK="255.255.255.0"
 GW="192.168.99.254"
 DNS_SERVER="192.168.99.254"
-LEASE="86400"
+DOMAIN="lab.zz"
+LEASE="43200"
 NSPACE="eth2_ns"
 DEV="eth2"
 
@@ -95,6 +96,13 @@ echo $INPUT | grep "new_dhcp_lease_time='$LEASE'" > /dev/null
 if [ $? -ne 0  ]; then
 	echo "wrong lease (error)"
 	exit 5
+fi
+
+# Check domain
+echo $INPUT | grep "new_domain_name='$DOMAIN'" > /dev/null
+if [ $? -ne 0  ]; then
+        echo "wrong domain (error)"
+        exit 6
 fi
 
 echo "dhcp pool + attributes ok"
