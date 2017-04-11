@@ -40,7 +40,7 @@ START () {
 VSERV () {
 	while true
 	do
-	bash /root/e-lab-check-scripts/check_objective/check_dns_forwarding.sh eth2_ns 192.168.99.254 webserver
+	bash /root/e-lab-check-scripts/check_objective/check_dns_forwarding.sh eth2_ns 192.168.99.254 webserver.lab.zz
 
 	if [ $? -eq 0 ]; then
 		# Run objectiveschecks.py and update VirtualTa with correct value

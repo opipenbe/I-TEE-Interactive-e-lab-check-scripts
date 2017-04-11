@@ -9,7 +9,7 @@ if [ $# -ne 3 ]; then
         exit 1
 fi
 
-ip netns exec $NSPACE host -W 1 $HOSTNAME $IP > /dev/null || {
+ip netns exec $NSPACE host -W 1 $HOSTNAME $IP > /dev/null  || {
   							  echo "dns forwarding for $HOSTNAME  is not configured in $IP"
   							  exit 1
 							}
