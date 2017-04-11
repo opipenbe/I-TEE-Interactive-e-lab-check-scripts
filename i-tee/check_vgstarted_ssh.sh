@@ -37,7 +37,7 @@ START () {
 	Sleep=1
 }
 
-VSERV () {
+VGSTARTED () {
 	while true
 	do
 	bash /root/e-lab-check-scripts/check_objective/check_ssh.sh
@@ -53,7 +53,7 @@ VSERV () {
 }
 
 START
-VSERV
+VGSTARTED
 
 exit 0
 
