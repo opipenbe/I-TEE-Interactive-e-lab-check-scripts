@@ -13,7 +13,7 @@
 
 #If VM is not a template, then start checks checking service
 
-bash /root/e-lab-check-scripts/netns_scripts/set_interfaces.sh
+#bash /root/e-lab-check-scripts/netns_scripts/set_interfaces.sh
 
 TEMPLATE="VirtualBox"
 DMIDECODEVERSION="$(dmidecode -s bios-version | cut -d'-' -f1,2)"

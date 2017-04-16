@@ -1,0 +1,3 @@
+#!/bin/sh
+bash /root/e-lab-check-scripts/netns_scripts/set_interfaces.sh
+exit 0
