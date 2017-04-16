@@ -7,6 +7,8 @@ if [[ $LAB_MACHINE == "vyos-gst"* ]]; then
    LAB_ID=P4ojLSRryaRReCYdM
 elif [[ $LAB_MACHINE == "vyos-serv"* ]]; then
    LAB_ID=ayx9XjvvXoZg5j7dq
+elif [[ $LAB_MACHINE == "vyos-fw"* ]]; then
+  LAB_ID=p9FWvjtKznajBnKuX
 else
    LAB_ID=P4ojLSRryaRReCYdM
 fi
