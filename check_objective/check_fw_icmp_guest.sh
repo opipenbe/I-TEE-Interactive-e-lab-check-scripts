@@ -1,5 +1,7 @@
 #/bin/bash
 # this script check file must be saved after reboot
+
+cd "$(dirname "$0")"
 ip netns exec eth4_ns ip route add default via 192.168.109.254
 ip netns exec eth4_ns ./check_ssh.sh nopw > /dev/null ||
 {
