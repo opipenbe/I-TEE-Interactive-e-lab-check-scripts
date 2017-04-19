@@ -6,6 +6,7 @@ ip netns exec eth3_ns ip route add default via 192.168.88.254
 ip netns exec eth4_ns ip route add default via 192.168.109.254
 
 
+bash ./check_ssh.sh nopw > /dev/null &&
 # Check Workstation subnet
 ! ip netns exec eth2_ns bash ./check_ssh.sh nopw > /dev/null &&
 # Check Server subnet
