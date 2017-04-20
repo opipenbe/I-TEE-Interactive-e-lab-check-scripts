@@ -18,6 +18,6 @@ fi
 
 ip netns | grep -w "$NSPACE" > /dev/null || exit 2
 
-ip netns exec $NSPACE ping -W 2 -c 1 $IP_ADR > /dev/null || exit 3
+ip netns exec $NSPACE fping -t 100 $IP_ADR > /dev/null || exit 3
 
 exit 0 # pinging

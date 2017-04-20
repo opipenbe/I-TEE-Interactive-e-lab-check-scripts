@@ -24,7 +24,7 @@ fi
 ip netns exec $NSPACE ip addr flush dev $DEV
 ip netns exec $NSPACE ip addr add $HIGH_IP dev $DEV
 
-ip netns exec $NSPACE ping -w 1 -c 1 $IP_ADR > /dev/null
+ip netns exec $NSPACE fping -t 100 $IP_ADR > /dev/null
 
 if [ $? -eq 0 ]; then
         echo "no higher prefix (ok)"
