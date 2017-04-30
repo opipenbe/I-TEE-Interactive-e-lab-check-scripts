@@ -1,5 +1,5 @@
 #!/bin/bash
-# Get working directory
+# go to working directory
 cd "$(dirname "$0")"
 # this namespace is for workstation subnet checking
 ./create_namespace.sh eth2 eth2_ns 192.168.99.1/24
