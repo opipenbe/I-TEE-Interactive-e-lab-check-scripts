@@ -43,8 +43,9 @@ fi
 /sbin/ip netns add $NAMESPACE &&
 /sbin/ip link set $INTERFACE netns $NAMESPACE &&
 /sbin/ip netns exec $NAMESPACE ip link set $INTERFACE up &&
-/sbin/ip netns exec $NAMESPACE ip addr add $ADDRESS dev $INTERFACE &&
+/sbin/ip netns exec $NAMESPACE ip addr add $ADDRESS dev $INTERFACE
 
+# Add default gw
 if [ $# -eq 4 ]; then
 	/sbin/ip netns exec $NAMESPACE ip route add default via $GATEWAY dev $INTERFACE
 fi
