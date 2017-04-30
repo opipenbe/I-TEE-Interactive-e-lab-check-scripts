@@ -1,9 +1,7 @@
 #!/bin/bash
 
-# Created by Olari Pipenberg. 
-# Feel free to change, add, and remove any part of this script.
 # Error codes:
-# 	1 - wrong argument number
+# 	1 - Wrong argument number
 #	2 - Insufficient privileges
 #	3 - Interface not found or namespace already exists
 #	4 - Unknown error
