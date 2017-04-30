@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Author: Olari Pipenberg
 # Best practice: use for HIGH_IP ip address from a same prefix as IP_ADR. HIGH_IP must be farthest ip from IP_ADR as possible.
 
 IP_ADR=$1
