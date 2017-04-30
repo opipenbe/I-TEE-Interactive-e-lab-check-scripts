@@ -33,7 +33,7 @@ START () {
 	DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 	# Time to sleep between running the check again
-	Sleep=0.5
+	Sleep=1
 
 	# Objective uname in VirtualTA
 	Uname=vgstartedint
