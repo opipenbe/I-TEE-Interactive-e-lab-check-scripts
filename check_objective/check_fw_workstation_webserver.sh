@@ -29,7 +29,7 @@ wait $(jobs -rp) 2>/dev/null
 
 grep "$SRC_IP -> $DST_IP" /tmp/traffic > /dev/null
 if [ $? -eq 0  ]; then
-  ip netns exec eth4_ns ip route del default via 192.168.99.254
+  ip netns exec eth2_ns ip route del default via 192.168.99.254
   echo "Destination address is too wide"
   exit 2
 fi
