@@ -13,8 +13,7 @@ ip netns exec eth4_ns ip route add default via 192.168.109.254
 # Check Guest subnet
 ! ip netns exec eth4_ns bash ./check_ssh.sh nopw > /dev/null && 
 bash ./check_ssh.sh nopw > /dev/null &&
-! fping -t 100 30.0.127.2 > /dev/null &&
-true
+! fping -t 100 30.0.127.2 > /dev/null
 
 if [ $? -eq 0  ]; then
   ip netns exec eth2_ns ip route del default via 192.168.99.254
