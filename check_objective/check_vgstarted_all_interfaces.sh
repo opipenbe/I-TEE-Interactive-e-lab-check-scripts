@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# Author: Olari Pipenberg. 
+
 cd "$(dirname "$0")"
 
 ping -W 1 -c 1 30.0.127.2 > /dev/null &&

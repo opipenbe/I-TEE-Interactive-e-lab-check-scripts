@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Author: Olari Pipenberg. 
+
+# Example: bash check_higher_subnet_prefix.sh 30.0.127.2 eth5_ns eth5 30.0.127.14/28
 # Best practice: use for HIGH_IP ip address from a same prefix as IP_ADR. HIGH_IP must be farthest ip from IP_ADR as possible.
 
 IP_ADR=$1
@@ -7,8 +10,7 @@ NSPACE=$2
 DEV=$3
 HIGH_IP=$4
 
-# Example: bash check_higher_subnet_prefix.sh 30.0.127.2 eth5_ns eth5 30.0.127.14/28
-# TODO check if namespace is correct.
+
 
 echo "Checking $IP_ADR" higher prefix:
 

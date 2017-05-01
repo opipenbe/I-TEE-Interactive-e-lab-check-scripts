@@ -1,5 +1,6 @@
 #/bin/bash
 # Author: Olari Pipenberg
+
 # NOTE that gw and interfaces check script cant be run same time
 # Requirements: tshark
 

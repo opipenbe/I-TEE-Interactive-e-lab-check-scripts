@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Author: Olari Pipenberg. 
+
 KEY_PATH="/root/e-lab-check-scripts/check_objective/ssh/id_rsa"
 USERNAME="zeus"
 IP="30.0.127.2"

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Author: Olari Pipenberg. 
 
 fping -t 100 30.0.127.2 &&
 ip netns exec eth2_ns fping -t 100 192.168.99.254 &&

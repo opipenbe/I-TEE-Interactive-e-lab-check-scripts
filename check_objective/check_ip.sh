@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Author: Olari Pipenberg
 
 # Check arguments

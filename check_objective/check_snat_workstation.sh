@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Author: Olari Pipenberg. 
+
 NSPACE="eth2_ns"
 DEV="eth2"
 SNAT_IP="30.0.127.4"

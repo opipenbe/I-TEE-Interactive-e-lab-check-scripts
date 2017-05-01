@@ -1,12 +1,7 @@
 #!/bin/bash
-# Script for checking VyOS - Getting Started objectives
-# Objective name - check ip
 
 # Author - Katrin Loodus
 # Modified by Olari Pipenberg
-#
-# Date - 27.04.2016
-# Version - 0.0.1
 
 LC_ALL=C
 

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Author: Olari Pipenberg. 
+
 # Requirements: dhcpcd5, dhcping
 # Error codes:
 #   exit 0 - ok

@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# Author: Olari Pipenberg. 
+
 PORT="80"
 ADDRESS="192.168.88.200"
 

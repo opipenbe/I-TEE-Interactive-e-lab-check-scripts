@@ -1,8 +1,7 @@
 #!/bin/bash
 
+# Author: Olari Pipenberg. 
 
-# Created by Olari Pipenberg. 
-# Feel free to change, add, and remove any part of this script.
 # Error codes:
 #       1 - Insufficient privileges
 

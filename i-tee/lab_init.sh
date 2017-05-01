@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Modified by Olari Pipenberg
+
 #export LAB_USERNAME=$(dmidecode -s bios-release-date)
 
 LAB_MACHINE=$(dmidecode -s bios-version)

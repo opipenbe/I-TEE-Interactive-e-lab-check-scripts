@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# Author: Olari Pipenberg. 
+
 cd "$(dirname "$0")"
 
 # There is no need to check higher prefix in internal networks, becouse checker machine (ISP) internal network addresses end with  x.x.x.1,

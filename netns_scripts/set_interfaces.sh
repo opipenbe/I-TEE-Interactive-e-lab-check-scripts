@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Author: Olari Pipenberg. 
+
 # go to working directory
 cd "$(dirname "$0")"
 

@@ -1,4 +1,7 @@
 #/bin/bash
+
+# Author: Olari Pipenberg. 
+
 cd "$(dirname "$0")"
 # adding default gw
 ip netns exec eth2_ns ip route add default via 192.168.99.254

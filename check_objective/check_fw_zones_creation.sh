@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Author: Olari Pipenberg. 
+
 # This script must be after zones creation
 # Do not run this script if firewall is not configured globally stateful
 # This script checkfile must be saved persistently

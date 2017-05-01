@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Author: Olari Pipenberg. 
+
 # Author: Olari Pipenberg
 # Requirements: dnsmasq installed
 

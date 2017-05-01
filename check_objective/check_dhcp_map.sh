@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Requirements: nmap
+# Author: Olari Pipenberg. 
 
 DHCP_SERVER="192.168.88.254"
 CHECK_IP="192.168.88.200/24"

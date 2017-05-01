@@ -1,5 +1,6 @@
 #/bin/bash
-# this script check file must be saved after reboot
+
+# Author: Olari Pipenberg. 
 
 ip netns exec eth2_ns ip route add default via 192.168.99.254
 ip netns exec eth3_ns ip route add default via 192.168.88.254

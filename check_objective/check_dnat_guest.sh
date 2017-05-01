@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# Author: Olari Pipenberg. 
+
 PORT="80"
 ADDRESS="30.0.127.3"
 NSPACE="eth4_ns"

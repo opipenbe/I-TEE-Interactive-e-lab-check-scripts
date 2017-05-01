@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Author: Olari Pipenberg. 
+
+
 NSPACE=$1
 IP="$2"
 HOSTNAME="$3"

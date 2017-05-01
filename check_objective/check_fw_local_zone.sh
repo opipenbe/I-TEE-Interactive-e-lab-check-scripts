@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Do not run this script if firewall is not configured globally stateful
+# Author: Olari Pipenberg. 
 # This script checkfile must be saved persistently
 
 #in ms

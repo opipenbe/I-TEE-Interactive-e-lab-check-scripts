@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Author: Olari Pipenberg.
+
 # Error codes:
 # 	1 - Wrong argument number
 #	2 - Insufficient privileges

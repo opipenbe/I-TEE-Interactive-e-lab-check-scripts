@@ -1,5 +1,6 @@
 #/bin/bash
-# this script check file must be saved before reboot
+
+# Author: Olari Pipenberg. 
 
 cd "$(dirname "$0")"
 ip netns exec eth2_ns ip route add default via 192.168.99.254

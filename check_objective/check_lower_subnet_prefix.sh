@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Author: Olari Pipenberg. 
+
 # Best practice: use one value lower prefix for LOW_IP. LOW_IP must be outside from checked prefix address range.
 
 IP_ADR=$1
