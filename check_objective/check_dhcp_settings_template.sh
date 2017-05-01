@@ -13,12 +13,14 @@
 
 DHCP_SERVER="192.168.99.254"
 START_IP="192.168.99.10/24"
-END_IP="192.168.99.200/24"
+END_IP="192.168.99.250/24"
 NETWORK="192.168.99.0"
 SUBNET_MASK="255.255.255.0"
 GW="192.168.99.254"
 DNS_SERVER="192.168.99.254"
-LEASE="86400"
+DOMAIN="lab.zz"
+SEARCH="lab.zz"
+LEASE="43200"
 NSPACE="eth2_ns"
 DEV="eth2"
 
@@ -32,7 +34,7 @@ fi
 # New ip
 ip netns exec $NSPACE ip addr flush dev $DEV
 ip netns exec $NSPACE ip addr add $START_IP dev $DEV
-ip netns exec $NSPACE dhcping -c $START_IP -s $DHCP_SERVER -h 08:00:27:50:27:20  > /dev/null || {
+ip netns exec $NSPACE dhcping -c $START_IP -s $DHCP_SERVER -h 08:00:27:50:27:22  > /dev/null || {
 								  echo "wrong dhcp pool start address"
 								  ip netns exec $NSPACE ip addr flush dev $DEV
 								  ip netns exec $NSPACE ip addr add $CURRENT_IP dev $DEV
@@ -41,7 +43,7 @@ ip netns exec $NSPACE dhcping -c $START_IP -s $DHCP_SERVER -h 08:00:27:50:27:20 
 # New ip
 ip netns exec $NSPACE ip addr flush dev $DEV
 ip netns exec $NSPACE ip addr add $END_IP dev $DEV
-ip netns exec $NSPACE dhcping -c $END_IP -s $DHCP_SERVER -h 08:00:27:50:27:10 > /dev/null || {
+ip netns exec $NSPACE dhcping -c $END_IP -s $DHCP_SERVER -h 08:00:27:50:27:22 > /dev/null || {
 								echo "wrong dhcp pool end address"
 								ip netns exec $NSPACE ip addr flush dev $DEV
 								ip netns exec $NSPACE ip addr add $CURRENT_IP dev $DEV
@@ -97,6 +99,20 @@ echo $INPUT | grep "new_dhcp_lease_time='$LEASE'" > /dev/null
 if [ $? -ne 0  ]; then
 	echo "wrong lease (error)"
 	exit 5
+fi
+
+# Check domain name
+echo $INPUT | grep "new_domain_name='$DOMAIN'" > /dev/null
+if [ $? -ne 0  ]; then
+        echo "wrong domain (error)"
+        exit 6
+fi
+
+# Check domain search
+echo $INPUT | grep "new_domain_search='$SEARCH'" > /dev/null
+if [ $? -ne 0  ]; then
+        echo "wrong search (error)"
+        exit 7
 fi
 
 echo "dhcp pool + attributes ok"
