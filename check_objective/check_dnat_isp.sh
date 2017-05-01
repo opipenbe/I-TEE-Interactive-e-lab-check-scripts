@@ -8,7 +8,7 @@ if [ $? -ne 0  ]; then
   exit 1
 fi
 
-# Check if dnat rule is too wide (ssh should not be open)
+# Check if dnat rule is not too wide (ssh should not be open)
 nc -z -w 1 $ADDRESS 22
 if [ $? -ne 0  ]; then
   echo "PAT for address: $ADDRESS and port: $PORT is configured"
