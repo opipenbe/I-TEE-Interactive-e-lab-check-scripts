@@ -5,6 +5,8 @@
 cd "$(dirname "$0")"
 bash check_dns_forwarding.sh eth2_ns 192.168.99.254 gw.lab.zz > /dev/null &&
 bash check_dns_forwarding.sh eth3_ns 192.168.88.254 gw.lab.zz > /dev/null &&
+! ip netns exec eth2_ns ./check_ssh.sh nopw > /dev/null &&
+! ip netns exec eth3_ns ./check_ssh.sh nopw > /dev/null &&
 echo "DNS allowed (ok)" &&
 exit 0
 
